@@ -1,7 +1,7 @@
 <?php
 /**
- * PARTIAL: Navigation Étudiant
- * Barre de navigation pour les étudiants
+ * PARTIAL: Navigation 
+ * Barre de navigation 
  */
 
 
@@ -21,7 +21,7 @@ if (strpos($_SERVER['PHP_SELF'], '/etudiant/') !== false) {
 }
 ?>
 
-<!-- Navigation Étudiant -->
+<!-- Navigation -->
 <nav class="bg-white shadow-lg fixed w-full z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -37,36 +37,12 @@ if (strpos($_SERVER['PHP_SELF'], '/etudiant/') !== false) {
 
                 <!-- Menu -->
                 <div class="hidden md:ml-10 md:flex md:space-x-8">
-                    <a href="<?= $basePath ?>etudiant/dashboard.php"
+                    <a href="<?= $basePath ?>../student/dashboard.php"
                        class="<?= ($currentPage ?? '') === 'dashboard'
                             ? 'border-green-500 text-gray-900'
                             : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
                        ?> inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
                         <i class="fas fa-home mr-2"></i>Tableau de bord
-                    </a>
-
-                    <a href="<?= $basePath ?>etudiant/categories.php"
-                       class="<?= ($currentPage ?? '') === 'categories'
-                            ? 'border-green-500 text-gray-900'
-                            : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
-                       ?> inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-                        <i class="fas fa-folder mr-2"></i>Catégories
-                    </a>
-
-                    <a href="<?= $basePath ?>etudiant/mes_quiz.php"
-                       class="<?= ($currentPage ?? '') === 'quiz'
-                            ? 'border-green-500 text-gray-900'
-                            : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
-                       ?> inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-                        <i class="fas fa-clipboard-list mr-2"></i>Mes Quiz
-                    </a>
-
-                    <a href="<?= $basePath ?>etudiant/mes_resultats.php"
-                       class="<?= ($currentPage ?? '') === 'resultats'
-                            ? 'border-green-500 text-gray-900'
-                            : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
-                       ?> inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-                        <i class="fas fa-chart-bar mr-2"></i>Mes Résultats
                     </a>
                 </div>
             </div>
@@ -84,7 +60,7 @@ if (strpos($_SERVER['PHP_SELF'], '/etudiant/') !== false) {
                     <div class="text-xs text-gray-500">Étudiant</div>
                 </div>
 
-                <a href="<?= $basePath ?>auth/logout.php?token=<?= Security::generateCSRFToken() ?>"
+                <a href="<?= $basePath ?>../auth/logout.php?token=<?= Security::generateCSRFToken() ?>"
                    class="text-red-600 hover:text-red-700" title="Déconnexion">
                     <i class="fas fa-sign-out-alt text-xl"></i>
                 </a>

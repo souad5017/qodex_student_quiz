@@ -130,4 +130,27 @@ class Quiz {
         $result = $this->db->query($sql, [$quizId]);
         return $result->fetch();
     }
+
+public function getByCategory($categoryId) {
+    $sql = "SELECT q.*, c.nom as categorie_nom
+            FROM quiz q
+            LEFT JOIN categories c ON q.categorie_id = c.id
+            WHERE q.categorie_id = ? AND q.is_active = 1
+            ORDER BY q.created_at DESC";
+    $result = $this->db->query($sql, [$categoryId]);
+    return $result->fetchAll();
+}
+
+public function getQuestions($quizId) {
+    $sql = "SELECT * FROM questions WHERE quiz_id = ?";
+    $stmt = $this->db->query($sql, [$quizId]);
+    return $stmt->fetchAll();
+}
+
+public function getAnswers($questionId) {
+    $sql = "SELECT * FROM answers WHERE question_id = ?";
+    $stmt = $this->db->query($sql, [$questionId]);
+    return $stmt->fetchAll();
+}
+
 }
